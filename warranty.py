@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ##################################################################################################################
-#| Henter data fra ms graph, legger på garanti informasjon og sender det videre til azure table storage. 		|#
+#| Get LENOVO warranty based on device serial number                                                     		|#
 #| DEVELOPED BY: cltj           						|#| Date:2022-02-06              						|#
 ##################################################################################################################
 from azure.data.tables import TableClient, UpdateMode
