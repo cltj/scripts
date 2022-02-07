@@ -26,13 +26,6 @@ connection_string = automationassets.get_automation_variable('AZURE_TABLES_CONNE
 account_name = automationassets.get_automation_variable('TABLES_STORAGE_ACCOUNT_NAME')
 #########################################
 """
-############# FOR DEV ##################
-TENANT_ID= "6b3a1411-b00c-4757-a457-431727bbf88d"
-CLIENT_ID="0b635cc5-d178-41aa-8623-c01ff18b722f"
-CLIENT_SECRET="~5_7Q~pW2ZyeHEfD1TKDKQCNEjlCb01ZnByhY"
-CLIENT_SCOPE="https%3A%2F%2Fgraph.microsoft.com%2F.default"
-connection_string = "BlobEndpoint=https://lkintuneteststorage.blob.core.windows.net/;QueueEndpoint=https://lkintuneteststorage.queue.core.windows.net/;FileEndpoint=https://lkintuneteststorage.file.core.windows.net/;TableEndpoint=https://lkintuneteststorage.table.core.windows.net/;SharedAccessSignature=sv=2020-08-04&ss=t&srt=sco&sp=rwdlacu&se=2023-03-01T16:04:35Z&st=2022-02-05T08:04:35Z&spr=https&sig=IySKGg%2FV%2BjTk6RtX5tntazn%2BB1kdC2j88jJlOcBNSOs%3D"
-#########################################
 
 
 def get_token(TENANT_ID, CLIENT_ID, CLIENT_SECRET, CLIENT_SCOPE):
@@ -79,7 +72,7 @@ def do_call(TENANT_ID, CLIENT_ID, CLIENT_SECRET, CLIENT_SCOPE):
     select_string = '$select=id, serialNumber, managedDeviceOwnerType, enrolledDateTime, model, manufacturer'
     filter_string = "$filter=operatingSystem eq 'Windows' AND managedDeviceOwnerType eq 'company' AND manufacturer eq 'LENOVO'"
     
-    url = base_url + '?' + select_string + '&' + filter_string + '&$top=800'
+    url = base_url + '?' + select_string + '&' + filter_string
     payload={}
     headers = {
         'Authorization': 'Bearer ' + token
